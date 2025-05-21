@@ -12,7 +12,7 @@ export default function ObservationDetails() {
     const fetchObservation = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/observation/one/${id}`
+          `https://nature-explorer.onrender.com/api/observation/one/${id}`
         );
         setObservation(res.data);
       } catch (err) {
