@@ -9,7 +9,7 @@ export default function NewlyAdded() {
     const fetchObservations = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/observation/all"
+          "https://nature-explorer.onrender.com/api/observation/all"
         );
 
         // Get up to last 20 observations (newest ones), reverse for newest first
