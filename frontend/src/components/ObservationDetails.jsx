@@ -34,7 +34,7 @@ export default function ObservationDetails() {
         {/* Left Side */}
         <div className="md:w-1/2 bg-white shadow-md rounded-xl p-4">
           <img
-            src={`http://localhost:5000/uploads/${image}`}
+            src={`https://nature-explorer.onrender.com/uploads/${image}`}
             alt={category}
             className="w-full h-64 object-cover rounded-lg"
           />
