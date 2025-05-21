@@ -12,7 +12,7 @@ export default function CategoryPage() {
     const fetchObservations = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/observation/category/${categoryName}`
+          `https://nature-explorer.onrender.com/api/observation/category/${categoryName}`
         );
         setObservations(res.data);
       } catch (error) {
