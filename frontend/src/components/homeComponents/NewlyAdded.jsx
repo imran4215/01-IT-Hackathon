@@ -40,7 +40,7 @@ export default function NewlyAdded() {
             <Link key={item._id} to={`/details/${item._id}`}>
               <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 cursor-pointer">
                 <img
-                  src={`http://localhost:5000/uploads/${item.image}`}
+                  src={`https://nature-explorer.onrender.com/uploads/${item.image}`}
                   alt={item.name || "Observation"}
                   className="w-full h-48 object-cover"
                   onError={(e) => {
