@@ -77,7 +77,7 @@ export default function NewlyAdded() {
     const fetchObservations = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/observation/all"
+          "https://nature-explorer.onrender.com/api/observation/all"
         );
         const latestTwenty = res.data.slice(-20);
         setObservations(latestTwenty);
@@ -124,8 +124,13 @@ export default function NewlyAdded() {
             <Link key={item._id} to={`/details/${item._id}`}>
               <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 cursor-pointer">
                 <img
+<<<<<<< HEAD
                   src={`http://localhost:5000/uploads/${item.image}`}
                   alt={item.name || "Your observation"}
+=======
+                  src={`https://nature-explorer.onrender.com/uploads/${item.image}`}
+                  alt={item.name || "Observation"}
+>>>>>>> 8e4cfadf1652bc689d014091ab85dd5ad2aa4b2f
                   className="w-full h-48 object-cover"
                   onError={(e) => {
                     e.target.onerror = null;

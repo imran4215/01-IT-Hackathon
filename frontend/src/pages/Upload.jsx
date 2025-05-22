@@ -124,7 +124,7 @@ export default function Upload() {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:5000/api/observation/upload",
+        "https://nature-explorer.onrender.com/api/observation/upload",
         formData
       );
       alert("Observation uploaded successfully!");
