@@ -81,7 +81,7 @@ export default function CategoryPage() {
     const fetchObservations = async () => {
       try {
         const res = await axios.get(
-          `https://nature-explorer.onrender.com/api/observation/category/${categoryName}`
+          `http://localhost:5000/api/observation/category/${categoryName}`
         );
         setObservations(res.data);
       } catch (error) {
@@ -105,7 +105,6 @@ export default function CategoryPage() {
         <h1 className="text-2xl font-semibold mb-6 text-center text-green-800 capitalize">
           Observations: {categoryName.replace(/-/g, " ")}
         </h1>
-<<<<<<< HEAD
 
         {/* District Dropdown */}
         <div className="mb-6 flex justify-center">
@@ -121,26 +120,6 @@ export default function CategoryPage() {
               </option>
             ))}
           </select>
-=======
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {observations.map((item) => (
-            <Link key={item._id} to={`/details/${item._id}`}>
-              <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 cursor-pointer">
-                <img
-                  src={`https://nature-explorer.onrender.com/uploads/${item.image}`}
-                  alt={item.category}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-4">
-                  <p className="text-gray-600 text-sm">📍 {item.state}</p>
-                  <p className="text-gray-800 font-medium truncate">
-                    {item.category}
-                  </p>
-                </div>
-              </div>
-            </Link>
-          ))}
->>>>>>> 8e4cfadf1652bc689d014091ab85dd5ad2aa4b2f
         </div>
 
         {/* Observations or No Data Message */}

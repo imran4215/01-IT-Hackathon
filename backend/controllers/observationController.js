@@ -7,7 +7,7 @@ dotenv.config();
 // Upload new observation
 export const uploadObservation = async (req, res) => {
   try {
-    const { category, state, latitude, longitude, userId } = req.body; // 👈 added userId
+    const { category, state, latitude, longitude, userId } = req.body;
     const image = req.file?.filename;
 
     if (!category || !state || !image || !latitude || !longitude || !userId) {
@@ -19,7 +19,7 @@ export const uploadObservation = async (req, res) => {
     const details = await generateDetailsFromImage(image);
 
     const newObservation = new Observation({
-      userId, // 👈 Save userId
+      userId,
       category,
       state,
       image,
@@ -34,6 +34,7 @@ export const uploadObservation = async (req, res) => {
     res
       .status(201)
       .json({ message: "Observation uploaded", data: newObservation });
+    console.log("New observation uploaded:", newObservation);
   } catch (error) {
     console.error("Upload Error:", error);
     res.status(500).json({ message: "Server error" });
