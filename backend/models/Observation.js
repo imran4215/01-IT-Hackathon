@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const observationSchema = new mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: "Auth", required: true },
   category: { type: String, required: true },
   state: { type: String, required: true },
   image: { type: String, required: true },

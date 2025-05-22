@@ -119,6 +119,7 @@ export default function Upload() {
     formData.append("latitude", location.lat);
     formData.append("longitude", location.lng);
     formData.append("image", image);
+    formData.append("userId", localStorage.getItem("userId"));
 
     try {
       setLoading(true);

@@ -7,20 +7,20 @@ dotenv.config();
 // Upload new observation
 export const uploadObservation = async (req, res) => {
   try {
-    const { category, state, latitude, longitude } = req.body;
+    const { category, state, latitude, longitude, userId } = req.body; // 👈 added userId
     const image = req.file?.filename;
 
-    if (!category || !state || !image || !latitude || !longitude) {
-      return res
-        .status(400)
-        .json({ message: "All fields are required including location" });
+    if (!category || !state || !image || !latitude || !longitude || !userId) {
+      return res.status(400).json({
+        message: "All fields are required including userId and location",
+      });
     }
 
-    // 🔥 AI Auto-generate details
     const details = await generateDetailsFromImage(image);
 
     const newObservation = new Observation({
-      category, // If your model uses `category`, map `name` to it
+      userId, // 👈 Save userId
+      category,
       state,
       image,
       details,
@@ -73,7 +73,7 @@ export const getObservationById = async (req, res) => {
 export const getObservationsByCategory = async (req, res) => {
   try {
     const categoryName = req.params.categoryName.replace(/-/g, " ");
-    console.log("Formatted category name:", categoryName);
+    //console.log("Formatted category name:", categoryName);
     if (!categoryName) {
       return res.status(400).json({ message: "Category name is required" });
     }
@@ -89,6 +89,19 @@ export const getObservationsByCategory = async (req, res) => {
     res.status(200).json(observations);
   } catch (error) {
     console.error("Fetch Category Error:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+// Get observations by user ID
+export const getUserObservations = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    //console.log("Fetching observations for user ID:", userId);
+    const observations = await Observation.find({ userId });
+    res.status(200).json(observations);
+  } catch (error) {
+    console.error("Error fetching user observations:", error);
     res.status(500).json({ message: "Server error" });
   }
 };

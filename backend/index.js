@@ -9,6 +9,7 @@ import { dirname } from "path";
 //Local imports
 import { connectDB } from "./lib/db.js";
 import observationRoutes from "./routes/observationRoutes.js";
+import authRoutes from "./routes/auth.route.js";
 
 //Configurations
 dotenv.config();
@@ -36,6 +37,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 //Routes
 app.use("/api/observation", observationRoutes);
+app.use("/api/auth", authRoutes);
 
 //Server start
 app.listen(PORT, () => {

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/homeComponents/Navbar";
 import Body from "../components/homeComponents/Body";
 import NewlyAdded from "../components/homeComponents/NewlyAdded";
+import Footer from "../components/homeComponents/Footer";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Navbar />
       <Body />
       <NewlyAdded />
+      <Footer />
     </div>
   );
 }

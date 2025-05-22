@@ -4,6 +4,7 @@ import {
   getAllObservations,
   getObservationById,
   getObservationsByCategory,
+  getUserObservations,
   uploadObservation,
 } from "../controllers/observationController.js";
 import multer from "multer";
@@ -33,5 +34,6 @@ router.post("/upload", upload.single("image"), uploadObservation);
 router.get("/all", getAllObservations);
 router.get("/one/:id", getObservationById);
 router.get("/category/:categoryName", getObservationsByCategory);
+router.get("/user/:userId", getUserObservations);
 
 export default router;
